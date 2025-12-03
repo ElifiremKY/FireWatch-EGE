@@ -1,54 +1,66 @@
 # FireWatch-EGE: Bölgesel Yangın Erken Tespit ve Risk Yönetim Sistemi
 
 FireWatch-EGE, Ege Bölgesi için uydu + meteoroloji + topografya verilerini birleştirerek
-**yangın erken tespit**, **risk analizi** ve **kestirimci yangın yayılımı tahmini** yapan bir sistemdir.
+**yangın erken tespiti**, **risk analizi** ve **kestirimci yangın yayılımı tahmini** yapan bir veri işleme ve analiz sistemidir.
 
 ---
 
 ## 🎯 Projenin Amacı
-- NASA FIRMS yangın noktalarını kullanarak sıcak noktaları tespit etmek  
-- OpenWeatherMap ile rüzgâr, nem, sıcaklık gibi meteorolojik verileri eşleştirmek  
-- DEM/SLOPE verileriyle bölgenin eğim etkisini hesaplamak  
-- Birleşik risk skorunu çıkararak yüksek riskli bölgeleri belirlemek  
-- Folium tabanlı etkileşimli risk haritası üretmek  
+- NASA FIRMS sıcak nokta verileriyle **yangın başlangıçlarını tespit etmek**
+- OpenWeatherMap API verileriyle **rüzgâr, nem, sıcaklık** gibi faktörleri birleştirmek
+- DEM/Slope verileri ile **arazi eğim etkisini** modele dahil etmek
+- Farklı veri kaynaklarını birleştirip **risk skorunu** hesaplamak
+- Folium tabanlı etkileşimli bir arayüz ile **risk haritası** oluşturmak
 
 ---
 
 ## 🛰 Kullanılan Veri Kaynakları
-- **NASA FIRMS** – uydu tabanlı yangın verisi  
-- **OpenWeatherMap API** – meteorolojik parametreler  
-- **DEM / Slope** – arazi eğim modeli  
-- **Geopy / Haversine** – bölgesel konum filtreleme  
+- **NASA FIRMS** – Uydu tabanlı yangın / sıcak nokta verisi  
+- **OpenWeatherMap API** – Meteorolojik parametreler  
+- **DEM (Digital Elevation Model)** – Yüzey yüksekliği ve eğim verisi  
+- **Geopy / Haversine** – Coğrafi uzaklık hesaplama  
 
 ---
 
 ## 🧠 Teknolojiler
 - **Python**  
-- **Apache Spark** (büyük veri işleme)  
-- **MongoDB** (veri depolama)  
-- **Scikit-learn** (Random Forest model)  
-- **Folium** (ısı haritası ve risk haritaları)  
+- **Apache Spark** (ölçeklenebilir veri işleme)
+- **MongoDB** (ham ve işlenmiş verilerin depolanması)
+- **Scikit-learn** (Random Forest risk modeli)
+- **Folium** (etkileşimli yangın ve risk haritaları)
+- **Pandas, NumPy, Requests** (veri işleme + API entegrasyonu)
 
 ---
 
-## 🛠 Metodoloji – 6 Aşamalı Geliştirme Süreci
-1. **Veri Toplama:** FIRMS, OWM ve DEM kaynaklarından veri çekildi  
-2. **Veri Depolama & Füzyon:** MongoDB ve Spark üzerinde birleştirme  
-3. **Risk Hesaplama:**  
-   R = f(sıcaklık, rüzgar, nem, eğim, konum ilişkisi)  
-4. **ML Modeli:** Random Forest ile risk sınıflandırma  
-5. **Web Arayüzü:** Folium ile etkileşimli harita prototipi  
-6. **Test:** Gerçek yangın geçmişi ile karşılaştırma  
+## 🛠 Proje Metodolojisi – 6 Aşamalı Geliştirme Süreci
+
+### 1) Veri Toplama  
+NASA FIRMS, OpenWeatherMap ve DEM kaynaklarından veriler çekilir.
+
+### 2) Veri Depolama ve Füzyon  
+Veriler MongoDB’de tutulur ve Spark ile eş zamanlı birleştirilir.
+
+### 3) Risk Skoru Hesaplama  
+Sıcaklık, nem, rüzgâr hızı, eğim ve konum ilişkisi kullanılarak bir **R skoru** üretilir.
+
+### 4) Makine Öğrenmesi  
+Random Forest modeli ile geçmiş veriler üzerinden **yangın riski sınıflandırması** yapılır.
+
+### 5) Harita Arayüzü  
+Folium ile **bölgesel risk haritası**, sıcak nokta haritası ve yayılım tahmin haritası oluşturulur.
+
+### 6) Test ve Doğrulama  
+Modelin çıktıları gerçek geçmiş yangınlarla karşılaştırılarak doğruluk kontrolü yapılır.
 
 ---
 
-## 📌 Proje Çıktıları
-- Anlık risk haritası  
-- Kestirimci risk haritası  
-- Bölgeler arası risk karşılaştırma  
-- Kullanıcı dostu harita arayüzü  
-- Raporlama modülü  
+## 📌 Üretilen Çıktılar
+- **Anlık risk haritası**
+- **Kestirimci risk haritası**
+- **Eğim + hava durumu + sıcak nokta ilişkili bölgesel analiz**
+- **Web tabanlı interaktif prototip**
 
 ---
 
-## 📂 Repo Yapısı (Yüklemeye Hazır)
+## 📂 Önerilen Klasör Yapısı
+(İleride ekleyeceğin .ipynb ve .py dosyaları için hazırdır.)
