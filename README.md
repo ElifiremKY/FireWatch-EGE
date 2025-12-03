@@ -64,3 +64,13 @@ Modelin çıktıları gerçek geçmiş yangınlarla karşılaştırılarak doğr
 
 ## 📂 Önerilen Klasör Yapısı
 (İleride ekleyeceğin .ipynb ve .py dosyaları için hazırdır.)
+
+## 📄 Dokümantasyon
+Detaylı proje raporu:  
+**FireWatchEGE.pdf**
+
+---
+
+## 👩‍💻 Geliştirici  
+**Elif İrem Kaya**  
+Computer Engineering | AI & Data | Geospatial Analysis | Defense Tech
